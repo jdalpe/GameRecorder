@@ -1,0 +1,10 @@
+Title:KidsOnBikes
+Orga:4:2
+Lang:Fr
+Section:1:Rumeur:1
+Section:2:Joueur:3
+Section:3:Trait Personnage Augmentee:2
+Section:4:Autres personnages:3
+Section:5:Endroit:2
+Section:6:Race:3
+Section:7:Scenario:2
