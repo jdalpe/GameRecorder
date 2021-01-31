@@ -36,9 +36,9 @@ namespace GameRecorder
 
         public static string[] SEP = { "TABLETOPRECORDER" };
 
-        public static Item[] LoadAll(int folder)
+        public static Item[] LoadAll(string realRoot, int folder)
         {
-            string root = GetRoot(folder);
+            string root = GetRoot(realRoot, folder);
             // make sure there's a directory
             if (!Directory.Exists(root))
             {
@@ -57,9 +57,9 @@ namespace GameRecorder
             return null;
         }
 
-        public static string GetRoot(int id)
+        public static string GetRoot(string root, int id)
         {
-            return "./section_" + id.ToString("0000") + "/";
+            return root + "/section_" + id.ToString("0000") + "/";
         }
 
         public override string ToString()

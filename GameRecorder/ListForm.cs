@@ -17,8 +17,9 @@ namespace GameRecorder
         private Home m_h;
         private int m_root;
         private string m_name;
+        private string m_repo = ".";
 
-        public ListForm(string name, FormStyle style, Home h, int root)
+        public ListForm(string name, FormStyle style, Home h, int root, string repo)
         {
             InitializeComponent();
             addBtn.Text = "Ajouter " + name;
@@ -26,6 +27,7 @@ namespace GameRecorder
             m_style = style;
             m_h = h;
             m_root = root;
+            m_repo = repo;
         }
 
         public ListBox GetListBox()
@@ -45,7 +47,7 @@ namespace GameRecorder
             {
                 id = Items.Length;
             }
-            Item i = new Item(id, Item.GetRoot(m_root));
+            Item i = new Item(id, Item.GetRoot(m_repo, m_root));
             m_style.Show(i, m_h, m_name);
         }
 

@@ -63,6 +63,12 @@
     <Compile Include="Style3Form.Designer.cs">
       <DependentUpon>Style3Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Style4Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Style4Form.Designer.cs">
+      <DependentUpon>Style4Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Style2Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="Style3Form.resx">
       <DependentUpon>Style3Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Style4Form.resx">
+      <DependentUpon>Style4Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Style2Form.resx">
       <DependentUpon>Style2Form.cs</DependentUpon>

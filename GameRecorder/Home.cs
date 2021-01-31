@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,23 @@ namespace GameRecorder
         private static int xDelta = 10;
         private static int yDelta = 10;
 
+        private string _root = "";
 
-        public Home()
+
+        public Home(string root)
         {
+            if (root == null)
+            {
+                _root = ".";
+            }
+            else
+            {
+                _root = root;
+            }
             InitializeComponent();
 
             //Config parser
-            m_config = new Config("./config.txt");
+            m_config = new Config(Path.Combine(_root, "config.txt"));
 
             //Fill UI
             if (m_config.Check)
@@ -36,7 +47,7 @@ namespace GameRecorder
                 m_listForms = new ListForm[m_config.Sections.Length];
                 for (int i = 0; i < m_config.Sections.Length; i++)
                 {
-                    m_listForms[i] = new ListForm(m_config.Sections[i], m_config.Styles[i], this, i);
+                    m_listForms[i] = new ListForm(m_config.Sections[i], m_config.Styles[i], this, i, _root);
                 }
 
                 titleLb.Text = m_config.Title;
@@ -93,7 +104,7 @@ namespace GameRecorder
         {
             ListBox lb = lf.GetListBox();
             lb.Items.Clear();
-            Item[] genericStruc = Item.LoadAll(folder);
+            Item[] genericStruc = Item.LoadAll(_root, folder);
         
             if (genericStruc != null)
             {

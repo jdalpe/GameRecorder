@@ -30,6 +30,10 @@ namespace GameRecorder
                     Style3Form rForm3 = new Style3Form(content, h, name);
                     rForm3.Show();
                     break;
+                case 4:
+                    Style4Form rForm4 = new Style4Form(content, h, name);
+                    rForm4.Show();
+                    break;
             }
         }
     }

@@ -12,11 +12,16 @@ namespace GameRecorder
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home());
+            string root = ".";
+            if (args.Length != 0)
+            {
+                root = args[0];
+            }
+            Application.Run(new Home(root));
         }
     }
 }
