@@ -49,7 +49,7 @@ namespace GameRecorder
         private void chercherBtn_Click(object sender, EventArgs e)
         {
             openFileDialog.DefaultExt = "png";
-            openFileDialog.Filter = "BMP|*.bmp|GIF|*.gif|JPG|*.jpg;*.jpeg|PNG|*.png|TIFF|*.tif;*.tiff";
+            openFileDialog.Filter = "Image|*.bmp;*.gif;*.jpg;*.jpeg;*.png;*.tif;*.tiff";
             openFileDialog.ShowDialog();
 
             if (File.Exists(openFileDialog.FileName))
