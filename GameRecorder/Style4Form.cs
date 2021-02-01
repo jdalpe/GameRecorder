@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,6 @@ namespace GameRecorder
         private Item m_item;
         private Home m_form;
 
-        private string m_mediaFile = "";
         
         public Style4Form(Item i, Home h, string name)
         {
@@ -26,11 +26,11 @@ namespace GameRecorder
             this.Text = name;
             nomTB.Text = i.Name;
             informationTB.Text = i.Elements[2];
-            m_mediaFile = i.Elements[3];
-            Console.WriteLine(m_mediaFile);
-            if (File.Exists(m_mediaFile))
+            mediaTB.Text = i.Elements[3];
+            
+            if (File.Exists(mediaTB.Text))
             { 
-                mediaPB.Image = Image.FromFile(m_mediaFile);
+                mediaPB.Image = Image.FromFile(mediaTB.Text);
             }
         }
 
@@ -39,7 +39,7 @@ namespace GameRecorder
         {
             m_item.Name = nomTB.Text;
             m_item.Elements[2] = informationTB.Text;
-            m_item.Elements[3] = m_mediaFile;
+            m_item.Elements[3] = mediaTB.Text;
             m_item.Save();
             this.Close();
             m_form.Reload();
@@ -54,8 +54,16 @@ namespace GameRecorder
 
             if (File.Exists(openFileDialog.FileName))
             {
-                m_mediaFile = openFileDialog.FileName;
-                mediaPB.Image = Image.FromFile(m_mediaFile);
+                mediaTB.Text = openFileDialog.FileName;
+                mediaPB.Image = Image.FromFile(mediaTB.Text);
+            }
+        }
+
+        private void locationBtn_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(mediaTB.Text))
+            {
+                Process.Start("explorer.exe", Path.GetDirectoryName(mediaTB.Text));
             }
         }
     }

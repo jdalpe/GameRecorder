@@ -39,6 +39,8 @@
             this.chercherBtn = new System.Windows.Forms.Button();
             this.mediaPB = new System.Windows.Forms.PictureBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.mediaTB = new System.Windows.Forms.TextBox();
+            this.locationBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mediaPB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,9 +132,9 @@
             // 
             // mediaPB
             // 
-            this.mediaPB.Location = new System.Drawing.Point(142, 342);
+            this.mediaPB.Location = new System.Drawing.Point(142, 383);
             this.mediaPB.Name = "mediaPB";
-            this.mediaPB.Size = new System.Drawing.Size(388, 241);
+            this.mediaPB.Size = new System.Drawing.Size(388, 200);
             this.mediaPB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mediaPB.TabIndex = 11;
             this.mediaPB.TabStop = false;
@@ -141,11 +143,31 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // mediaTB
+            // 
+            this.mediaTB.Enabled = false;
+            this.mediaTB.Location = new System.Drawing.Point(142, 361);
+            this.mediaTB.Name = "mediaTB";
+            this.mediaTB.Size = new System.Drawing.Size(388, 22);
+            this.mediaTB.TabIndex = 12;
+            // 
+            // locationBtn
+            // 
+            this.locationBtn.Location = new System.Drawing.Point(32, 403);
+            this.locationBtn.Name = "locationBtn";
+            this.locationBtn.Size = new System.Drawing.Size(105, 73);
+            this.locationBtn.TabIndex = 13;
+            this.locationBtn.Text = "Ouvrir localisation";
+            this.locationBtn.UseVisualStyleBackColor = true;
+            this.locationBtn.Click += new System.EventHandler(this.locationBtn_Click);
+            // 
             // Style4Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 645);
+            this.Controls.Add(this.locationBtn);
+            this.Controls.Add(this.mediaTB);
             this.Controls.Add(this.mediaPB);
             this.Controls.Add(this.chercherBtn);
             this.Controls.Add(this.label4);
@@ -178,5 +200,7 @@
         private System.Windows.Forms.Button chercherBtn;
         private System.Windows.Forms.PictureBox mediaPB;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.TextBox mediaTB;
+        private System.Windows.Forms.Button locationBtn;
     }
 }
