@@ -38,7 +38,22 @@ namespace GameRecorder
             InitializeComponent();
 
             //Config parser
-            m_config = new Config(Path.Combine(_root, "config.txt"));
+            string configPath = Path.Combine(_root, "config.txt");
+
+            if (!File.Exists(configPath))
+            {
+                if (File.Exists(configPath))
+                    File.Delete(configPath);
+                using (StreamWriter file =
+                      new StreamWriter(configPath))
+                {
+                    file.Write("Title:Test layout" + Environment.NewLine +
+                                "Orga:1:1" + Environment.NewLine +
+                                "Lang:Fr" + Environment.NewLine +
+                                "Section:1:Test:1");
+                }
+            }
+            m_config = new Config(configPath);
 
             //Fill UI
             if (m_config.Check)
